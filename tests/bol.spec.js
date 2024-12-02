@@ -8,3 +8,4 @@ test('Basic Search', async ({ page }) => {
     await bolPage.searchFor('Books');
     await bolPage.expectedSearchResultPage("‘Books’ in Alle artikelen");
 });
+
