@@ -7,6 +7,7 @@ class BolPage {
         this.searchResultPage = page.locator("//*[@id='js_listpage_objects']/h1")
         this.termsAndConditionsBanner = page.locator("//button[text()='Alles accepteren' and contains(@class, 'c-PJLV')]")
         this.continueAndExitBanner = page.locator("//button[text()='Doorgaan' and contains(@class, 'c-PJLV')]")
+        this.loginButton = page.locator()
     }
 
     async searchFor() {
