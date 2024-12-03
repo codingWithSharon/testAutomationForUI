@@ -95,4 +95,7 @@ test('User can log in successfully', async ({ page }) => {
 
 ### Getting started with Git
 
-Coming soon!
+
+git add .
+git commit -m "Initial commit with project setup"
+git push -u origin main
