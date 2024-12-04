@@ -16,4 +16,4 @@ test('lockedOutUserLoginAttempt', async ({ page }) => {
     await loginPage.lockedOutUser();
     const checkForMessage= await loginPage.failureMessage();
     expect(checkForMessage).toBe(true);
-})
+});

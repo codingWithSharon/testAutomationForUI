@@ -30,6 +30,6 @@ class LoginPage {
         await this.loginFailureMessageCheck.waitFor();
         return await this.loginFailureMessageCheck.isVisible();
     }
-}
+};
 
 module.exports = LoginPage;
