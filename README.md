@@ -95,7 +95,8 @@ test('User can log in successfully', async ({ page }) => {
 
 ### Getting started with Git
 
-
+1. Git vs Github
+2. CI/CD In GitHub
 
 Use commands below in the terminal:
 
