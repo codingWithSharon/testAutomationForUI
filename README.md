@@ -1,6 +1,6 @@
 # Getting Started
 
-This repo is created to practice with automation testing. As I am a beginner myself the files here will change and grow as time goes on. All the notes in this file are beginner friendly and easy to access to recall steps or learn specific topics.
+This repo is created to practice with automation testing. As I am a beginner myself the files here will change and grow as time goes on. All the notes in this file are beginner friendly and helpful to recall steps or learn more about specific topics.
 
 Before you can start to practice you would need to know the basics on the topics listed below:
 
