@@ -3,13 +3,19 @@ class LoginPage {
         this.page = page;
         this.usernameField = page.getByPlaceholder("Username");
         this.passwordField = page.getByPlaceholder("Password");
-        this.loginButton = page.locator("login-button");
+        this.loginButton = page.locator("//input[@id='login-button']");
+        this.homepageCheck = page.locator("//span[@class='title']");
     }
 
-    async login() {
-        await this.usernameField.fill("John");
-        await this.passwordField.fill("123");
+    async standardLogin() {
+        await this.usernameField.fill("standard_user");
+        await this.passwordField.fill("secret_sauce");
         await this.loginButton.click();
+    }
+
+    async isLoginSuccessfull() {
+        await this.homepageCheck.waitFor();
+        return await this.homepageCheck.isVisible();
     }
 }
 
