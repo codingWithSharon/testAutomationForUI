@@ -96,6 +96,14 @@ test('User can log in successfully', async ({ page }) => {
 ### Getting started with Git
 
 
-git add .
-git commit -m "Initial commit with project setup"
-git push -u origin main
+
+Use commands below in the terminal:
+
+- git add .
+- git commit -m "Initial commit with project setup"
+- git push -u origin main <--To comit
+
+### Practice websites for test automation
+
+- https://www.saucedemo.com/
+- https://uitestingplayground.com/
