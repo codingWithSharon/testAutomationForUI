@@ -97,12 +97,24 @@ test('User can log in successfully', async ({ page }) => {
 
 1. Git vs Github
 2. CI/CD In GitHub
+3. Branches
+
+
+Typical Workflow:
+
+- Create a new branch (e.g., feature/new-feature).
+- Make changes, commit, and push to the branch.
+- Create a Pull Request to merge your branch into main.
+- Merge the Pull Request after review.
+
 
 Use commands below in the terminal:
 
 - git add .
 - git commit -m "Initial commit with project setup"
-- git push -u origin main <--To comit
+- git push -u origin main                   <--To commit main
+- git push -u origin new-branch-name        <--For commit branch
+
 
 ### Practice websites for test automation
 

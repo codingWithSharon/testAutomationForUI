@@ -14,6 +14,14 @@ test('lockedOutUserLoginAttempt', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.lockedOutUser();
-    const checkForMessage= await loginPage.failureMessage();
+    const checkForMessage = await loginPage.failureMessage();
     expect(checkForMessage).toBe(true);
+});
+
+test('check product', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    await page.goto('https://www.saucedemo.com/');
+    await loginPage.standardLogin();
+    const checkItemText = await loginPage.checkProduct();
+    expect(checkItemText).toBe('Sauce Labs Backpack');
 });
