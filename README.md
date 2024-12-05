@@ -113,7 +113,7 @@ Use commands below in the terminal:
 - git add .
 - git commit -m "Initial commit with project setup"
 - git push -u origin main                   <--To commit main
-- git push -u origin new-branch-name        <--For commit branch (git push -u origin MyFirstBranch)
+- git push -u origin new-branch-name        <--For commit branch
 
 
 ### Practice websites for test automation
