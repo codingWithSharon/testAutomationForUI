@@ -3,6 +3,8 @@ const { expect } = require("@playwright/test");
 class LoginPage {
     constructor(page) {
         this.page = page;
+        this.addToCartButton = page.locator("(//button[@class='btn btn_primary btn_small btn_inventory '])[1]");
+        this.addedToCartButtonCheck = page.locator("(//button[@class='btn btn_secondary btn_small btn_inventory '])[1]");
         this.backpackTextCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
         this.firstItemLinkCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
         this.homepageCheck = page.locator("//span[@class='title']");
@@ -40,7 +42,12 @@ class LoginPage {
     }
 
     async addToCart() {
-        
+        await this.addToCartButton.click();
+        return await this.addToCartButton.textContent('REMOVE');
+    }
+
+    async addedToCartCheck() {
+        return await this.addedToCartButtonCheck.textContent('Add to cart');
     }
 
 };
