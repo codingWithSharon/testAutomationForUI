@@ -2,7 +2,7 @@ const { test, expect } = require('@playwright/test');
 const LoginPage = require('../models/loginPage.model');
 const exp = require('constants');
 
-test('succesfull standardLogin', async ({ page }) => {
+test('1 succesfull standardLogin', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.standardLogin();
@@ -10,7 +10,7 @@ test('succesfull standardLogin', async ({ page }) => {
     expect(isSuccessful).toBe(true);
 });
 
-test('lockedOutUserLoginAttempt', async ({ page }) => {
+test('2 lockedOutUserLoginAttempt', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.lockedOutUser();
@@ -18,7 +18,7 @@ test('lockedOutUserLoginAttempt', async ({ page }) => {
     expect(checkForMessage).toBe(true);
 });
 
-test('check product', async ({ page }) => {
+test('3 check product', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.standardLogin();
@@ -26,7 +26,7 @@ test('check product', async ({ page }) => {
     expect(checkItemText).toBe('Sauce Labs Backpack');
 });
 
-test('Add item to cart', async ({ page }) => {
+test('4 Add item to cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.standardLogin();
