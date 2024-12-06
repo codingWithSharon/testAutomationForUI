@@ -25,3 +25,12 @@ test('check product', async ({ page }) => {
     const checkItemText = await loginPage.checkProduct();
     expect(checkItemText).toBe('Sauce Labs Backpack');
 });
+
+test('Add item to cart', async ({ page }) => {
+    const loginPage = new LoginPage(page);
+    await page.goto('https://www.saucedemo.com/');
+    await loginPage.standardLogin();
+    await loginPage.addToCart();
+    const checkCartButton = await loginPage.addedToCartCheck();
+    expect(checkCartButton).toBe('Remove');
+})
