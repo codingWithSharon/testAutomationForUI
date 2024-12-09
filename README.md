@@ -110,16 +110,24 @@ Typical Workflow:
 
 Use commands below in the terminal:
 
+Pushing your code:
 - git add .
 - git commit -m "Initial commit with project setup"
 - git push -u origin main                   <--To commit main
 - git push -u origin new-branch-name        <--For commit branch
+
+Chanigng user:
 - git config user.name
 - git config user.email
 - git config --global user.name
 - git config --global user.email
 - git config --global user.name "Your Correct Name"
 - git config --global user.email "your-email@example.com"
+
+Dealing with multiple branches and branches that were created remotely:
+- git fetch
+- git checkout -b branch-name origin/branch-name <--creating a branch that tracks
+- git switch branch-name
 
 
 
