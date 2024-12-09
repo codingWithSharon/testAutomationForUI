@@ -1,5 +1,8 @@
 const { test, expect } = require('@playwright/test');
-const LoginPage = require('../models/loginPage.model');
+const { LoginPage, shopAndCheckout } = require('../models/webshop.model');
+
+//const LoginPage = require('../models/webshop.model');
+
 const exp = require('constants');
 
 test('1 succesfull standardLogin', async ({ page }) => {
@@ -28,9 +31,11 @@ test('3 check product', async ({ page }) => {
 
 test('4 Add item to cart', async ({ page }) => {
     const loginPage = new LoginPage(page);
+    const shopAndCheckoutInstance = new shopAndCheckout(page);
+    
     await page.goto('https://www.saucedemo.com/');
     await loginPage.standardLogin();
-    await loginPage.addToCart();
-    const checkCartButton = await loginPage.addedToCartCheck();
-    expect(checkCartButton).toBe('Remove');
-})
+    await shopAndCheckoutInstance.addToCart();
+    const checkCartButton = await shopAndCheckoutInstance.addedToCartButtonCheck.textContent();
+    expect(checkCartButton).toBe('REMOVE');
+});
