@@ -115,6 +115,15 @@ Use commands below in the terminal:
 - git push -u origin main                   <--To commit main
 - git push -u origin new-branch-name        <--For commit branch
 
+- git config --global user.name
+- git config --global user.email
+- git config user.name
+- git config user.email
+- git config --global user.name "Your Correct Name"
+- git config --global user.email "your-email@example.com"
+
+
+
 
 ### Practice websites for test automation
 

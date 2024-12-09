@@ -3,8 +3,6 @@ const { expect } = require("@playwright/test");
 class LoginPage {
     constructor(page) {
         this.page = page;
-        this.addToCartButton = page.locator("(//button[@class='btn btn_primary btn_small btn_inventory '])[1]");
-        this.addedToCartButtonCheck = page.locator("(//button[@class='btn btn_secondary btn_small btn_inventory '])[1]");
         this.backpackTextCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
         this.firstItemLinkCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
         this.homepageCheck = page.locator("//span[@class='title']");
@@ -40,16 +38,27 @@ class LoginPage {
         await this.backpackTextCheck.waitFor();
         return await this.backpackTextCheck.textContent('Sauce Labs Backpack');
     }
-
-    async addToCart() {
-        await this.addToCartButton.click();
-        return await this.addToCartButton.textContent('REMOVE');
-    }
-
-    async addedToCartCheck() {
-        return await this.addedToCartButtonCheck.textContent('Add to cart');
-    }
-
 };
 
-module.exports = LoginPage;
+class shopAndCheckout {
+    constructor(page) {
+        this.page = page
+        this.pageTitle = page.locator("//span[@class='title']");
+        this.nameField = page.locator("//div//input[@class='input_error form_input'][1]");
+        this.lastnameField = page.locator("//div//input[@class='input_error form_input'][2]");
+        this.zipcodeField = page.locator("(//div//input[@class='input_error form_input'][3]");
+        this.continueButton = page.locator("//input[@class='submit-button btn btn_primary cart_button btn_action']");
+        
+        this.goToCartButton = page.locator("(//button[@class='btn btn_primary btn_small btn_inventory '])[1]");
+        this.addedToCartButtonCheck = page.locator("(//button[@class='btn btn_secondary btn_small btn_inventory '])[1]");
+        this.checkoutInformationCheck = page.locator("//span[@class='title']");
+        this.firstItemLinkCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
+    }
+
+    async addToCart() {
+        await this.goToCartButton.waitFor();
+        return await this.addToCartButton.textContent('REMOVE');
+    }
+};
+
+module.exports = { LoginPage, shopAndCheckout };
