@@ -40,25 +40,27 @@ class LoginPage {
     }
 };
 
-class shopAndCheckout {
+class ShopAndCheckout {
     constructor(page) {
         this.page = page
-        this.pageTitle = page.locator("//span[@class='title']");
-        this.nameField = page.locator("//div//input[@class='input_error form_input'][1]");
-        this.lastnameField = page.locator("//div//input[@class='input_error form_input'][2]");
-        this.zipcodeField = page.locator("(//div//input[@class='input_error form_input'][3]");
-        this.continueButton = page.locator("//input[@class='submit-button btn btn_primary cart_button btn_action']");
-        
-        this.goToCartButton = page.locator("(//button[@class='btn btn_primary btn_small btn_inventory '])[1]");
-        this.addedToCartButtonCheck = page.locator("(//button[@class='btn btn_secondary btn_small btn_inventory '])[1]");
-        this.checkoutInformationCheck = page.locator("//span[@class='title']");
-        this.firstItemLinkCheck = page.locator("(//div[@class='inventory_item_name '])[1]");
+        this.addToCartButton = page.locator("#add-to-cart-sauce-labs-backpack");
+        this.removeButton = page.locator("#remove-sauce-labs-backpack");
+        this.shoppingCart = page.locator("a.shopping_cart_link");
+        this.productName = page.locator("//div[@class='inventory_item_name']");
+        this.cartQuantity = page.locator("//div[@class='cart_quantity']");
+        this.productPrice = page.locator("//div[@class='inventory_item_price']");
+        this.checkoutButton = page.locator("#checkout");
+
     }
 
     async addToCart() {
-        await this.goToCartButton.waitFor();
-        return await this.addToCartButton.textContent('REMOVE');
+        await this.addToCartButton.click();
+        await this.shoppingCart.click();
+    }
+
+    async readyForCheckout() {
+        await this.checkoutButton.click();
     }
 };
 
-module.exports = { LoginPage, shopAndCheckout };
+module.exports = { LoginPage, ShopAndCheckout };
