@@ -127,7 +127,10 @@ Chanigng user:
 Dealing with multiple branches and branches that were created remotely:
 - git fetch
 - git checkout -b branch-name origin/branch-name <--creating a branch that tracks
+- git branch -vv <--confirming that it is tracking the remote branch
 - git switch branch-name
+- git branch -D branch-name 
+
 
 
 

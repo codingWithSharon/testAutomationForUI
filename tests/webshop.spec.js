@@ -1,5 +1,5 @@
 const { test, expect } = require('@playwright/test');
-const { LoginPage, shopAndCheckout } = require('../models/webshop.model');
+const { LoginPage, ShopAndCheckout } = require('../models/webshop.model');
 
 //const LoginPage = require('../models/webshop.model');
 
@@ -29,13 +29,17 @@ test('3 check product', async ({ page }) => {
     expect(checkItemText).toBe('Sauce Labs Backpack');
 });
 
-test('4 Add item to cart', async ({ page }) => {
+test('4 Add item to cart and checkout', async ({ page }) => {
     const loginPage = new LoginPage(page);
-    const shopAndCheckoutInstance = new shopAndCheckout(page);
-    
+    const shopAndCheckout = new ShopAndCheckout(page);
     await page.goto('https://www.saucedemo.com/');
     await loginPage.standardLogin();
-    await shopAndCheckoutInstance.addToCart();
-    const checkCartButton = await shopAndCheckoutInstance.addedToCartButtonCheck.textContent();
-    expect(checkCartButton).toBe('REMOVE');
+    await expect(shopAndCheckout.addToCartButton).toHaveText('Add to cart');
+    await shopAndCheckout.addToCart();
+    await expect(shopAndCheckout.removeButton).toHaveText('Remove');
+    await expect(shopAndCheckout.productName).toHaveText('Sauce Labs Backpack');
+    await expect(shopAndCheckout.cartQuantity).toHaveText('1');
+    await expect(shopAndCheckout.productPrice).toHaveText('$29.99');
+    await shopAndCheckout.readyForCheckout();
 });
+
